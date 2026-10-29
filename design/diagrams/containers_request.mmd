@@ -1,0 +1,18 @@
+flowchart TB
+    WEB["Web client<br/>HTML + SSE"]
+    LB["HTTPS load balancer<br/>+ Cloud Armor"]
+    GW["Gateway<br/>Cloud Run"]
+    FS[("Firestore<br/>handles, rate limits")]
+    RS["Redeem service<br/>Cloud Run"]
+    AE["Agent Engine<br/>Coordinator + 3 specialists"]
+    MA["Model Armor"]
+    LLM["Vertex AI Gemini"]
+    WEB --> LB --> GW
+    GW -->|screen input| MA
+    GW -->|create handle, count requests| FS
+    GW -->|stream query + handle| AE
+    AE -->|stream events<br/>KB answers held until validated| GW
+    AE -->|redeem handle| RS
+    RS -->|decrement uses| FS
+    AE --> LLM
+    AE -->|screen tool results| MA

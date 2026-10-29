@@ -1,0 +1,6 @@
+flowchart LR
+    G["KB markdown in Git"] --> B["Cloud Storage<br/>kb-source"]
+    B --> CH["Chunk by headings<br/>title prefix + access_group"]
+    CH --> EM["Embed chunks<br/>gemini-embedding-001<br/>768 dims, document task type"]
+    EM --> UP["Load into Vector Search 2.0<br/>collection kb_chunks"]
+    UP --> EV["Retrieval eval gate<br/>recall, leakage, abstain"]

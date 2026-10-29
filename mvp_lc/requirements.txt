@@ -1,0 +1,12 @@
+langchain==1.4.2
+langchain-core==1.6.3
+langchain-google-genai==4.4.0
+langchain-mcp-adapters==0.3.2
+langgraph==1.2.11
+google-genai==2.23.0
+pytest==9.1.1
+ruff==0.17.2
+fastapi==0.141.1
+uvicorn==0.54.0
+httpx==0.28.1
+mcp==1.30.0

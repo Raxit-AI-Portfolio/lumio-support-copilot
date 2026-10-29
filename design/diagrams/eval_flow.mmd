@@ -1,0 +1,14 @@
+flowchart TB
+    DS["Golden set in Git<br/>prompt, persona, reference trajectory,<br/>reference answer or rubric"] --> RUN["Eval runner<br/>mints test token, runs each case N times"]
+    RUN --> GW["Dev gateway and agents<br/>real model"]
+    GW --> OUT["Captured per run<br/>final answer + tool-call trajectory<br/>(from audit events)"]
+    OUT --> CHK["Deterministic checks in code<br/>citation ids, forbidden tools,<br/>leak strings"]
+    OUT --> SVC["Vertex Gen AI Evaluation Service"]
+    SVC --> TJ["Trajectory metrics<br/>exact, in-order, any-order,<br/>precision, recall, single tool"]
+    SVC --> RS["Response metrics<br/>judge model: grounded, correct, abstains"]
+    CHK --> AGG["Aggregate<br/>pass rate and flip rate per suite"]
+    TJ --> AGG
+    RS --> AGG
+    AGG --> GATE{"Thresholds met?"}
+    GATE -->|yes| OK["Report saved in evidence bundle<br/>release may continue"]
+    GATE -->|no| BLK["Release blocked"]

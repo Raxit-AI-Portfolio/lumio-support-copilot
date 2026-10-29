@@ -1,0 +1,24 @@
+flowchart TB
+    subgraph People
+        C[Customer]
+        A[Support agent]
+        L[Support lead]
+    end
+    W[Web client]
+    IDP[Identity provider]
+    SYS["Support Copilot<br/>gateway, redeem service, agents, tools"]
+    LLM["Vertex AI<br/>Gemini + embeddings"]
+    DATA[("BigQuery<br/>operational data")]
+    STATE[("Firestore<br/>identity handles, rate limits")]
+    KB[("Vector Search 2.0<br/>knowledge index")]
+    OBS["Cloud Trace, Logging,<br/>Monitoring"]
+    C --> W
+    A --> W
+    L --> W
+    IDP -->|issues token| W
+    W -->|HTTPS + token| SYS
+    SYS --> LLM
+    SYS --> DATA
+    SYS --> STATE
+    SYS --> KB
+    SYS --> OBS

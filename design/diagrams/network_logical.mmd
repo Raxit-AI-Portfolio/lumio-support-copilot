@@ -1,0 +1,32 @@
+flowchart TB
+    U["Users on the internet"]
+    subgraph EDGE["Zone 1: Google edge (public)"]
+        direction LR
+        DNS["DNS name"] --> ARM["Cloud Armor<br/>DDoS, rate limit, WAF"] --> LB["Global HTTPS<br/>load balancer"]
+    end
+    subgraph RUN["Zone 2: serverless compute (IAM protected, every call carries an ID token)"]
+        GW["Cloud Run<br/>Gateway"]
+        AE["Agent Engine<br/>agents"]
+        RS["Cloud Run<br/>Redeem service<br/>ingress all, IAM only"]
+        TAPI["Cloud Run<br/>Ticket API"]
+        MCP["Cloud Run<br/>MCP server"]
+        GW --> AE
+        AE --> RS
+        AE --> TAPI
+        AE --> MCP
+    end
+    VPC["Blueprint only: VPC subnet + firewall<br/>Direct VPC egress<br/>Private Google Access"]
+    subgraph GAPI["Zone 3: Google APIs (one IAM role set per service account)"]
+        direction LR
+        VX["Vertex AI<br/>Gemini + embeddings"]
+        MA["Model Armor"]
+        VS[("Vector Search 2.0")]
+        BQ[("BigQuery")]
+        FS[("Firestore<br/>handles, rate limits")]
+        SM["Secret Manager"]
+    end
+    U --> EDGE
+    EDGE --> GW
+    RUN --> GAPI
+    RUN -.-> VPC
+    VPC -.-> GAPI

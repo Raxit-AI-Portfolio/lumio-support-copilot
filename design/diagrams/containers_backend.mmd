@@ -1,0 +1,26 @@
+flowchart TB
+    AE["Agent Engine<br/>agent tools"]
+    GW["Gateway<br/>approvals endpoints"]
+    subgraph RUN["Cloud Run"]
+        RS["Redeem service<br/>identity tokens"]
+        MCP["MCP server<br/>read path"]
+        TAPI["Ticket API<br/>write path"]
+    end
+    EMB["Gemini embedding<br/>gemini-embedding-001"]
+    subgraph DATA["Data"]
+        FS[("Firestore<br/>handles, rate limits")]
+        BQ[("BigQuery<br/>lumio_ops")]
+        VS[("Vector Search 2.0<br/>kb_chunks")]
+        GCS[("Cloud Storage<br/>KB source files")]
+    end
+    AE -->|redeem handle| RS
+    AE -->|ticket reads, similar own tickets| MCP
+    AE -->|create, comment, propose| TAPI
+    AE -->|embed question| EMB
+    AE -->|search + access filter| VS
+    GW -->|approve, reject| TAPI
+    GW -->|create handle, counters| FS
+    RS -->|decrement uses| FS
+    MCP -->|views, shared query builder| BQ
+    TAPI -->|only writer: tickets, approvals, credits| BQ
+    GCS -->|ingest: chunk, embed, load| VS

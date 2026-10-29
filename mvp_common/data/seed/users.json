@@ -1,0 +1,757 @@
+[
+  {
+    "user_id": "u-acme-01",
+    "tenant_id": "t-acme",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-acme-02",
+    "tenant_id": "t-acme",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-acme-03",
+    "tenant_id": "t-acme",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-acme-04",
+    "tenant_id": "t-acme",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-acme-05",
+    "tenant_id": "t-acme",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-acme-06",
+    "tenant_id": "t-acme",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-acme-07",
+    "tenant_id": "t-acme",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-acme-08",
+    "tenant_id": "t-acme",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-acme-09",
+    "tenant_id": "t-acme",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-acme-10",
+    "tenant_id": "t-acme",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-acme-11",
+    "tenant_id": "t-acme",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-acme-12",
+    "tenant_id": "t-acme",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-acme-13",
+    "tenant_id": "t-acme",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-acme-14",
+    "tenant_id": "t-acme",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-acme-15",
+    "tenant_id": "t-acme",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-acme-16",
+    "tenant_id": "t-acme",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-birch-01",
+    "tenant_id": "t-birch",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-birch-02",
+    "tenant_id": "t-birch",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-birch-03",
+    "tenant_id": "t-birch",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-birch-04",
+    "tenant_id": "t-birch",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-birch-05",
+    "tenant_id": "t-birch",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-birch-06",
+    "tenant_id": "t-birch",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-birch-07",
+    "tenant_id": "t-birch",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-birch-08",
+    "tenant_id": "t-birch",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-birch-09",
+    "tenant_id": "t-birch",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-birch-10",
+    "tenant_id": "t-birch",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-birch-11",
+    "tenant_id": "t-birch",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-birch-12",
+    "tenant_id": "t-birch",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-birch-13",
+    "tenant_id": "t-birch",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-birch-14",
+    "tenant_id": "t-birch",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-birch-15",
+    "tenant_id": "t-birch",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-birch-16",
+    "tenant_id": "t-birch",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-cobalt-01",
+    "tenant_id": "t-cobalt",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-cobalt-02",
+    "tenant_id": "t-cobalt",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-cobalt-03",
+    "tenant_id": "t-cobalt",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-cobalt-04",
+    "tenant_id": "t-cobalt",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-cobalt-05",
+    "tenant_id": "t-cobalt",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-cobalt-06",
+    "tenant_id": "t-cobalt",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-cobalt-07",
+    "tenant_id": "t-cobalt",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-cobalt-08",
+    "tenant_id": "t-cobalt",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-cobalt-09",
+    "tenant_id": "t-cobalt",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-cobalt-10",
+    "tenant_id": "t-cobalt",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-cobalt-11",
+    "tenant_id": "t-cobalt",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-cobalt-12",
+    "tenant_id": "t-cobalt",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-cobalt-13",
+    "tenant_id": "t-cobalt",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-cobalt-14",
+    "tenant_id": "t-cobalt",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-cobalt-15",
+    "tenant_id": "t-cobalt",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-cobalt-16",
+    "tenant_id": "t-cobalt",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-delta-01",
+    "tenant_id": "t-delta",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-delta-02",
+    "tenant_id": "t-delta",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-delta-03",
+    "tenant_id": "t-delta",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-delta-04",
+    "tenant_id": "t-delta",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-delta-05",
+    "tenant_id": "t-delta",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-delta-06",
+    "tenant_id": "t-delta",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-delta-07",
+    "tenant_id": "t-delta",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-delta-08",
+    "tenant_id": "t-delta",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-delta-09",
+    "tenant_id": "t-delta",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-delta-10",
+    "tenant_id": "t-delta",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-delta-11",
+    "tenant_id": "t-delta",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-delta-12",
+    "tenant_id": "t-delta",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-delta-13",
+    "tenant_id": "t-delta",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-delta-14",
+    "tenant_id": "t-delta",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-delta-15",
+    "tenant_id": "t-delta",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-delta-16",
+    "tenant_id": "t-delta",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-ember-01",
+    "tenant_id": "t-ember",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-ember-02",
+    "tenant_id": "t-ember",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-ember-03",
+    "tenant_id": "t-ember",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-ember-04",
+    "tenant_id": "t-ember",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-ember-05",
+    "tenant_id": "t-ember",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-ember-06",
+    "tenant_id": "t-ember",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-ember-07",
+    "tenant_id": "t-ember",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-ember-08",
+    "tenant_id": "t-ember",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-ember-09",
+    "tenant_id": "t-ember",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-ember-10",
+    "tenant_id": "t-ember",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-ember-11",
+    "tenant_id": "t-ember",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-ember-12",
+    "tenant_id": "t-ember",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-ember-13",
+    "tenant_id": "t-ember",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-ember-14",
+    "tenant_id": "t-ember",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-ember-15",
+    "tenant_id": "t-ember",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-ember-16",
+    "tenant_id": "t-ember",
+    "role": "customer",
+    "access_group": "customer",
+    "assigned_tenants": []
+  },
+  {
+    "user_id": "u-agent-01",
+    "tenant_id": "t-lumio",
+    "role": "agent",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-acme",
+      "t-birch"
+    ]
+  },
+  {
+    "user_id": "u-agent-02",
+    "tenant_id": "t-lumio",
+    "role": "agent",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-birch",
+      "t-cobalt"
+    ]
+  },
+  {
+    "user_id": "u-agent-03",
+    "tenant_id": "t-lumio",
+    "role": "agent",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-cobalt",
+      "t-delta"
+    ]
+  },
+  {
+    "user_id": "u-agent-04",
+    "tenant_id": "t-lumio",
+    "role": "agent",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-delta",
+      "t-ember"
+    ]
+  },
+  {
+    "user_id": "u-agent-05",
+    "tenant_id": "t-lumio",
+    "role": "agent",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-ember",
+      "t-acme"
+    ]
+  },
+  {
+    "user_id": "u-agent-06",
+    "tenant_id": "t-lumio",
+    "role": "agent",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-acme",
+      "t-birch"
+    ]
+  },
+  {
+    "user_id": "u-agent-07",
+    "tenant_id": "t-lumio",
+    "role": "agent",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-birch",
+      "t-cobalt"
+    ]
+  },
+  {
+    "user_id": "u-agent-08",
+    "tenant_id": "t-lumio",
+    "role": "agent",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-cobalt",
+      "t-delta"
+    ]
+  },
+  {
+    "user_id": "u-agent-09",
+    "tenant_id": "t-lumio",
+    "role": "agent",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-delta",
+      "t-ember"
+    ]
+  },
+  {
+    "user_id": "u-agent-10",
+    "tenant_id": "t-lumio",
+    "role": "agent",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-ember",
+      "t-acme"
+    ]
+  },
+  {
+    "user_id": "u-agent-11",
+    "tenant_id": "t-lumio",
+    "role": "agent",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-acme",
+      "t-birch"
+    ]
+  },
+  {
+    "user_id": "u-agent-12",
+    "tenant_id": "t-lumio",
+    "role": "agent",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-birch",
+      "t-cobalt"
+    ]
+  },
+  {
+    "user_id": "u-agent-13",
+    "tenant_id": "t-lumio",
+    "role": "agent",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-cobalt",
+      "t-delta"
+    ]
+  },
+  {
+    "user_id": "u-agent-14",
+    "tenant_id": "t-lumio",
+    "role": "agent",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-delta",
+      "t-ember"
+    ]
+  },
+  {
+    "user_id": "u-lead-01",
+    "tenant_id": "t-lumio",
+    "role": "lead",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-acme"
+    ]
+  },
+  {
+    "user_id": "u-lead-02",
+    "tenant_id": "t-lumio",
+    "role": "lead",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-birch"
+    ]
+  },
+  {
+    "user_id": "u-lead-03",
+    "tenant_id": "t-lumio",
+    "role": "lead",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-cobalt"
+    ]
+  },
+  {
+    "user_id": "u-lead-04",
+    "tenant_id": "t-lumio",
+    "role": "lead",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-delta"
+    ]
+  },
+  {
+    "user_id": "u-lead-05",
+    "tenant_id": "t-lumio",
+    "role": "lead",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-ember"
+    ]
+  },
+  {
+    "user_id": "u-lead-06",
+    "tenant_id": "t-lumio",
+    "role": "lead",
+    "access_group": "internal",
+    "assigned_tenants": [
+      "t-acme",
+      "t-birch"
+    ]
+  }
+]

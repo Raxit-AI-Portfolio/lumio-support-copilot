@@ -1,0 +1,24 @@
+sequenceDiagram
+    autonumber
+    actor U as User
+    participant IDP as IdP
+    participant GW as Gateway
+    participant FS as Firestore
+    participant AE as Agent Engine
+    participant RS as Redeem service
+    participant TL as Tool
+    U->>IDP: sign in
+    IDP-->>U: JWT with sub, tenant_id, role
+    U->>GW: request + JWT
+    GW->>GW: verify signature, issuer, audience, expiry
+    GW->>FS: rate-limit counters (user, tenant)
+    GW->>GW: read directory (role, access group)
+    GW->>FS: create per-turn handle (120 s, 5 uses, no token stored)
+    GW->>AE: call as gateway service account with identity + handle
+    AE->>RS: redeem handle for tool audience (engine service account only)
+    RS->>FS: decrement remaining_uses (transaction)
+    RS-->>AE: short-lived token for this tool audience
+    AE->>TL: tool call with scoped token
+    TL->>TL: verify token, apply tenant and role filters
+    TL-->>AE: only data this user may see
+    GW->>FS: delete handle at end of turn

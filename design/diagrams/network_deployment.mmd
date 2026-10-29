@@ -1,0 +1,19 @@
+flowchart TB
+    NET((Internet)) --> DNS[support.lumio.example - A record]
+    DNS --> IP[Reserved global static IP]
+    IP --> ALB[Global external HTTPS ALB + Cloud Armor]
+    ALB -->|serverless NEG, primary| GW1[Gateway us-central1]
+    ALB -.->|serverless NEG, DR - weight 0| GW2[Gateway us-east1]
+    subgraph "Blueprint only: VPC vpc-lumio-prod (custom mode)"
+        S1[snet-run-usc1 10.10.0.0/26]
+        S2[snet-run-use1 10.20.0.0/26]
+    end
+    GW1 -.- S1
+    GW2 -.- S2
+    GW1 -->|ID token| AE1[Agent Engine us-central1]
+    GW1 --> FS1[(Firestore handles, rate limits)]
+    GW2 -.-> AE2[Agent Engine us-east1 - deployed on failover]
+    AE1 -->|ID token, ingress all| RS1[Redeem service Cloud Run]
+    RS1 --> FS1
+    AE1 -->|ID token| TAPI[Ticket API / MCP Cloud Run]
+    TAPI --> GAPI[Google APIs]

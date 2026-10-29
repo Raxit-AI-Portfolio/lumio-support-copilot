@@ -1,0 +1,13 @@
+flowchart TB
+    PR[Pull request] --> C1[Format check, unit tests, offline evals, dependency scan]
+    C1 --> M[Merge to main]
+    M --> BLD[Cloud Build: build images, push to Artifact Registry, record digests]
+    BLD --> MIG[Run data migrations in dev]
+    MIG --> DEVD[Deploy to dev: Cloud Run --no-traffic, deploy agent]
+    DEVD --> SMK["Smoke tests + live eval gate<br/>Vertex Gen AI Evaluation Service"]
+    SMK -->|pass| APR{Manual approval}
+    SMK -->|fail| STOP[Stop and report]
+    APR --> PRD[Prod: migrations, deploy --no-traffic, canary 10% checks]
+    PRD --> SHIFT[Shift to 100%]
+    SHIFT --> POST[Post-deploy smoke + resume-after-deploy test]
+    POST -->|fail| RB[Rollback: move traffic to previous revision]

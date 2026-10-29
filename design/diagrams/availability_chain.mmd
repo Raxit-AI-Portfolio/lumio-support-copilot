@@ -1,0 +1,36 @@
+flowchart LR
+    subgraph W1["W1 How-to question (needs the knowledge base)"]
+        direction LR
+        a1["Load balancer<br/>99.99%"] --> a2["Gateway<br/>99.95%"]
+        a2 --> a3["Model Armor<br/>unpublished"]
+        a3 --> a4["Agent Engine<br/>unpublished"]
+        a4 --> a5["Gemini primary<br/>99.5%"]
+        a4 --> a6["Gemini fallback<br/>99.5%"]
+        a5 --> j1(( ))
+        a6 --> j1
+        j1 --> a7["Embedding + Vector Search<br/>unpublished"]
+        j1 --> a8["Keyword fallback<br/>cached chunks"]
+        a7 --> j2(( ))
+        a8 --> j2
+        j2 --> a9(["Answer"])
+    end
+    subgraph W2["W2 W3 W4 W6 Tool workflows"]
+        direction LR
+        b1["Load balancer<br/>99.99%"] --> b2["Gateway<br/>99.95%"]
+        b2 --> b3["Model Armor<br/>unpublished"]
+        b3 --> b4["Agent Engine<br/>unpublished"]
+        b4 --> b5["Gemini primary<br/>99.5%"]
+        b4 --> b6["Gemini fallback<br/>99.5%"]
+        b5 --> k1(( ))
+        b6 --> k1
+        k1 --> b7["MCP or Ticket API<br/>99.95%"]
+        b7 --> b8["BigQuery<br/>99.99%"]
+        b8 --> b9(["Answer"])
+    end
+    subgraph W5["W5 Approval (no model)"]
+        direction LR
+        c1["Load balancer<br/>99.99%"] --> c2["Gateway<br/>99.95%"]
+        c2 --> c3["Ticket API<br/>99.95%"]
+        c3 --> c4["BigQuery<br/>99.99%"]
+        c4 --> c5(["Result"])
+    end

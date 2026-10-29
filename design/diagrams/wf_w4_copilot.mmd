@@ -1,0 +1,21 @@
+sequenceDiagram
+    actor A as Support agent
+    participant G as Gateway
+    participant C as Coordinator
+    participant T as Ticket Ops Agent
+    participant R as Resolution Agent
+    participant API as Ticket API
+    A->>G: "Summarise T-1042 and suggest a reply"
+    G->>C: request + identity + per-turn handle
+    C->>T: get ticket + messages (MCP, read-only)
+    T-->>C: summary + similar tickets
+    C->>R: draft reply using KB (internal allowed)
+    R-->>A: assistant_draft (internal) + suggested action (refund 40 USD)
+    A->>G: "Propose the refund"
+    G->>C: request
+    C->>R: propose_action(refund, O-5001, 40)
+    R->>API: create pending approval with action_hash (refused if one is already pending)
+    R-->>A: "Sent for approval. Ticket is pending_approval."
+    A->>G: review and edit the draft, send as public comment
+    G->>API: add_comment (public) under the staff identity
+    API-->>A: comment sent (never sent by the assistant)

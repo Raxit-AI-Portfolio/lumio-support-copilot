@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lumio support copilot (MVP)</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; }
+  #log { border: 1px solid #ccc; border-radius: 6px; padding: 0.75rem; height: 320px; overflow-y: auto; }
+  .you { color: #1a4fa0; margin: 0.4rem 0; }
+  .bot { margin: 0.4rem 0; white-space: pre-wrap; }
+  .status { color: #888; font-size: 0.85rem; margin: 0.2rem 0; }
+  .error { color: #b00020; }
+  #row { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+  #message { flex: 1; padding: 0.4rem; }
+  .card { border: 1px solid #ccc; border-radius: 6px; padding: 0.6rem; margin: 0.5rem 0; }
+  code { font-size: 0.8rem; }
+</style>
+</head>
+<body>
+<h1>Lumio support copilot</h1>
+
+<p>
+  Sign in as
+  <select id="token"></select>
+  <button id="signin">Sign in</button>
+  <span id="who"></span>
+</p>
+
+<div id="log"></div>
+<div id="row">
+  <input id="message" placeholder="Ask a question or name a ticket" disabled>
+  <button id="send" disabled>Send</button>
+</div>
+
+<div id="approvals-box" hidden>
+  <h2>Pending approvals</h2>
+  <button id="refresh">Refresh</button>
+  <div id="approvals"></div>
+</div>
+
+<script>
+let token = "";
+const log = document.getElementById("log");
+
+function addLine(cssClass, text) {
+  const line = document.createElement("div");
+  line.className = cssClass;
+  line.textContent = text;
+  log.appendChild(line);
+  log.scrollTop = log.scrollHeight;
+  return line;
+}
+
+async function call(path, method, body) {
+  const options = { method, headers: { Authorization: "Bearer " + token } };
+  if (body) {
+    options.headers["Content-Type"] = "application/json";
+    options.body = JSON.stringify(body);
+  }
+  return fetch(path, options);
+}
+
+async function loadPersonas() {
+  const reply = await fetch("/personas");
+  const data = await reply.json();
+  const select = document.getElementById("token");
+  for (const name of data.tokens) {
+    select.add(new Option(name, name));
+  }
+}
+
+async function signIn() {
+  token = document.getElementById("token").value;
+  const reply = await call("/me", "GET");
+  if (!reply.ok) {
+    document.getElementById("who").textContent = "sign-in failed";
+    return;
+  }
+  const me = await reply.json();
+  document.getElementById("who").textContent = me.user_id + " (" + me.role + ")";
+  document.getElementById("message").disabled = false;
+  document.getElementById("send").disabled = false;
+  log.textContent = "";
+  document.getElementById("approvals-box").hidden = me.role !== "lead";
+  if (me.role === "lead") {
+    loadApprovals();
+  }
+}
+
+async function send() {
+  const input = document.getElementById("message");
+  const text = input.value.trim();
+  if (!text) {
+    return;
+  }
+  input.value = "";
+  addLine("you", "You: " + text);
+  const reply = await call("/chat", "POST", { message: text });
+  if (!reply.ok) {
+    addLine("error", "Request failed (" + reply.status + ")");
+    return;
+  }
+  const reader = reply.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) {
+      break;
+    }
+    buffer += decoder.decode(value, { stream: true });
+    const parts = buffer.split("\n\n");
+    buffer = parts.pop();
+    for (const part of parts) {
+      showEvent(JSON.parse(part.replace(/^data: /, "")));
+    }
+  }
+}
+
+function showEvent(event) {
+  if (event.kind === "status") {
+    addLine("status", event.text);
+  } else if (event.kind === "answer") {
+    addLine("bot", event.text);
+  } else if (event.kind === "usage") {
+    return; // token counts are for evals, not for the chat page
+  } else {
+    addLine("error", event.text);
+  }
+}
+
+async function loadApprovals() {
+  const reply = await call("/approvals", "GET");
+  const box = document.getElementById("approvals");
+  box.textContent = "";
+  if (!reply.ok) {
+    return;
+  }
+  const data = await reply.json();
+  if (data.approvals.length === 0) {
+    box.textContent = "Nothing pending.";
+  }
+  for (const item of data.approvals) {
+    box.appendChild(makeCard(item));
+  }
+}
+
+function makeCard(item) {
+  const card = document.createElement("div");
+  card.className = "card";
+  const title = document.createElement("div");
+  title.textContent = item.approval_id + ": " + item.action + " " + item.amount + " on " + item.order_id +
+    " (ticket " + item.ticket_id + ", proposed by " + item.requested_by + ")";
+  const reason = document.createElement("div");
+  reason.textContent = "Reason: " + item.reason;
+  const hash = document.createElement("code");
+  hash.textContent = "hash " + item.action_hash.slice(0, 16) + "...";
+  const approve = document.createElement("button");
+  approve.textContent = "Approve";
+  approve.onclick = () => decide(item, "approve");
+  const reject = document.createElement("button");
+  reject.textContent = "Reject";
+  reject.onclick = () => decide(item, "reject");
+  card.append(title, reason, hash, document.createElement("br"), approve, reject);
+  return card;
+}
+
+async function decide(item, decision) {
+  const body = { decision: decision, action_hash: item.action_hash };
+  const reply = await call("/approvals/" + item.approval_id + "/decide", "POST", body);
+  const data = await reply.json();
+  alert(reply.ok ? item.approval_id + ": " + data.status : data.detail);
+  loadApprovals();
+}
+
+document.getElementById("signin").onclick = signIn;
+document.getElementById("send").onclick = send;
+document.getElementById("refresh").onclick = loadApprovals;
+document.getElementById("message").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    send();
+  }
+});
+loadPersonas();
+</script>
+</body>
+</html>

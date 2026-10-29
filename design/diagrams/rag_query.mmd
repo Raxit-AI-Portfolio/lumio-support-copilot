@@ -1,0 +1,9 @@
+flowchart TB
+    Q["User question"] --> E["Embed question<br/>query task type"]
+    E --> S["Vector search, top 20<br/>filter: access_group in role set"]
+    S --> G{"Top-1 score above<br/>threshold?"}
+    G -->|no| N["Say: not found<br/>offer a ticket"]
+    G -->|yes| W["Write answer<br/>with source ids"]
+    W --> V{"Every cited id<br/>was retrieved?"}
+    V -->|yes| O["Answer + citations"]
+    V -->|no| X["Remove the id,<br/>or refuse"]

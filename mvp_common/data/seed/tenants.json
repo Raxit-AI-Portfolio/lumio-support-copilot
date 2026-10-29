@@ -1,0 +1,38 @@
+[
+  {
+    "tenant_id": "t-lumio",
+    "name": "Lumio Support",
+    "plan_tier": "enterprise",
+    "sla_hours": 4
+  },
+  {
+    "tenant_id": "t-acme",
+    "name": "Acme Robotics",
+    "plan_tier": "pro",
+    "sla_hours": 8
+  },
+  {
+    "tenant_id": "t-birch",
+    "name": "Birch Logistics",
+    "plan_tier": "basic",
+    "sla_hours": 24
+  },
+  {
+    "tenant_id": "t-cobalt",
+    "name": "Cobalt Health",
+    "plan_tier": "enterprise",
+    "sla_hours": 4
+  },
+  {
+    "tenant_id": "t-delta",
+    "name": "Delta Foods",
+    "plan_tier": "pro",
+    "sla_hours": 8
+  },
+  {
+    "tenant_id": "t-ember",
+    "name": "Ember Studios",
+    "plan_tier": "basic",
+    "sla_hours": 24
+  }
+]

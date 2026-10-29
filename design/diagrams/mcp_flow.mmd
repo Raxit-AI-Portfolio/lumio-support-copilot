@@ -1,0 +1,5 @@
+flowchart LR
+    TO["Ticket Ops Agent"] -->|"McpToolset + tool_filter"| MCP["MCP server<br/>Cloud Run"]
+    MCP --> VAL["Validate arguments<br/>(Pydantic)"]
+    VAL --> QB["Shared query builder<br/>always adds tenant_id<br/>and requester_id"]
+    QB --> VW[("BigQuery views<br/>lumio_read")]

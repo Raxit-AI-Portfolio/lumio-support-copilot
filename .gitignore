@@ -1,0 +1,24 @@
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.tfvars
+*.tfstate
+*.tfstate.*
+.terraform/
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+backend.hcl
+*.auto.tfvars
+*.tfstate.backup
+
+keys/
+
+# local data and deploy state (also listed in mvp_common/.gitignore and mvp_adk/.gitignore)
+*.db
+kb_index.json
+engine_resource.txt

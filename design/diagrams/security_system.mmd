@@ -1,0 +1,60 @@
+flowchart TB
+    A["A. Web client"]
+    B["B. Identity provider"]
+    C["C. Cloud Armor +<br/>load balancer"]
+    subgraph RUN["Serverless compute (D, F, H, I, N, R)"]
+        D["D. Gateway"]
+        R["R. Redeem service"]
+        F["F. Agent Engine"]
+        H["H. MCP server"]
+        I["I. Ticket API"]
+        N["N. KB ingestion job"]
+    end
+    E["E. Model Armor"]
+    G["G. Vertex AI<br/>Gemini + embeddings"]
+    K[("K. Vector Search")]
+    J[("J. BigQuery")]
+    Q[("Q. Firestore")]
+    M["M. Secret Manager"]
+    L[("L. Cloud Storage")]
+    O["O. CI/CD +<br/>Artifact Registry"]
+    P["P. Logging, Trace,<br/>Monitoring"]
+
+    A --> B
+    A --> C
+    C --> D
+    D --> B
+    D --> M
+    D --> E
+    D --> F
+    F --> D
+    F --> E
+    F --> G
+    F --> H
+    F --> I
+    F --> K
+    F --> L
+    D --> I
+    D --> Q
+    F --> R
+    R --> Q
+    R --> M
+    H --> J
+    I --> J
+    J --> L
+    N --> L
+    N --> G
+    N --> K
+    O -.->|"deploy"| RUN
+    RUN -.->|"logs, traces, metrics"| P
+
+    classDef internet fill:#fde8e8,stroke:#c0392b
+    classDef edge fill:#fff3cd,stroke:#b8860b
+    classDef compute fill:#e3f0ff,stroke:#2e6fbd
+    classDef google fill:#e6f4ea,stroke:#2e8b57
+    classDef ops fill:#eeeeee,stroke:#666666
+    class A,B internet
+    class C edge
+    class D,F,H,I,N,R compute
+    class E,G,K,J,L,M,Q google
+    class O,P ops

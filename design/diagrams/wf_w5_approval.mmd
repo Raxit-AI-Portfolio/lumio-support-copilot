@@ -1,0 +1,20 @@
+sequenceDiagram
+    actor L as Support lead
+    participant G as Gateway
+    participant API as Ticket API
+    participant BQ as BigQuery
+    L->>G: list pending approvals
+    G->>API: read pending approvals
+    API-->>L: pending list
+    L->>G: approve (approval id)
+    G->>G: verify lead token, lead is not the requester
+    G->>API: decide approval as the lead
+    API->>BQ: script: conditional UPDATE pending to approved, must change 1 row
+    API->>BQ: re-check order (paid, in window, amount)
+    alt re-check fails
+        API->>BQ: roll back, mark approval failed
+    else re-check passes
+        API->>BQ: update order or insert credit, update ticket, set status executed
+    end
+    API-->>G: result
+    G-->>L: result (a second click returns already executed)

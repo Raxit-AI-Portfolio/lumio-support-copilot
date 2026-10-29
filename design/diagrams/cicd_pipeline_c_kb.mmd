@@ -1,0 +1,15 @@
+flowchart TB
+    PR["Pull request changes KB markdown"] --> CK["PR checks<br/>front matter, access_group, size limits, links"]
+    CK --> MG["Merge to main"]
+    MG --> JOB["Cloud Run Job kb-ingest in dev<br/>chunk by headings, embed, load"]
+    JOB --> DEVC["Dev collection kb_chunks"]
+    DEVC --> RG["Retrieval gate<br/>recall at 5, leakage = 0, abstain set"]
+    RG -->|fail| STOP["Stop and report"]
+    RG -->|pass| AP{"Manual approval"}
+    AP --> PJOB["Job in prod, next batch window<br/>embed once"]
+    PJOB --> R1["Load collection us-central1"]
+    PJOB --> R2["Load collection us-east1"]
+    R1 --> PAR["Parity check<br/>same chunk ids and count in both regions"]
+    R2 --> PAR
+    PAR --> CF["Write chunks/kb_chunks.jsonl<br/>to the kb-source bucket"]
+    CF --> REL["Knowledge Agent reads the file<br/>for the keyword fallback"]

@@ -1,0 +1,19 @@
+flowchart TB
+    U["User message<br/>identity in session state<br/>per-turn handle"]
+    CO["Coordinator agent<br/>routes only"]
+    KA["Knowledge Agent"]
+    TO["Ticket Ops Agent"]
+    RA["Resolution Agent"]
+    T1["kb_search"]
+    T2["MCP read tools<br/>incl. find_similar_own_tickets"]
+    T3["create_ticket<br/>add_comment"]
+    T4["propose_action"]
+    U --> CO
+    CO -->|how-to, policy| KA
+    CO -->|tickets, new problem, analytics| TO
+    CO -->|draft reply, propose action| RA
+    KA --> T1
+    TO --> T2
+    TO --> T3
+    RA --> T4
+    RA -.->|agent as tool| KA

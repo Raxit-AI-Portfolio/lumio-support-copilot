@@ -1,0 +1,212 @@
+[
+  {
+    "order_id": "O-5001",
+    "tenant_id": "t-acme",
+    "amount": 40.0,
+    "status": "paid",
+    "refundable_until": "2026-10-04"
+  },
+  {
+    "order_id": "O-5002",
+    "tenant_id": "t-birch",
+    "amount": 77.0,
+    "status": "refunded",
+    "refundable_until": "2026-11-09"
+  },
+  {
+    "order_id": "O-5003",
+    "tenant_id": "t-cobalt",
+    "amount": 114.0,
+    "status": "partially_refunded",
+    "refundable_until": "2026-11-10"
+  },
+  {
+    "order_id": "O-5004",
+    "tenant_id": "t-delta",
+    "amount": 151.0,
+    "status": "disputed",
+    "refundable_until": "2026-10-04"
+  },
+  {
+    "order_id": "O-5005",
+    "tenant_id": "t-ember",
+    "amount": 188.0,
+    "status": "paid",
+    "refundable_until": "2026-11-12"
+  },
+  {
+    "order_id": "O-5006",
+    "tenant_id": "t-acme",
+    "amount": 225.0,
+    "status": "paid",
+    "refundable_until": "2026-11-13"
+  },
+  {
+    "order_id": "O-5007",
+    "tenant_id": "t-birch",
+    "amount": 262.0,
+    "status": "paid",
+    "refundable_until": "2026-10-04"
+  },
+  {
+    "order_id": "O-5008",
+    "tenant_id": "t-cobalt",
+    "amount": 299.0,
+    "status": "refunded",
+    "refundable_until": "2026-11-15"
+  },
+  {
+    "order_id": "O-5009",
+    "tenant_id": "t-delta",
+    "amount": 336.0,
+    "status": "partially_refunded",
+    "refundable_until": "2026-11-16"
+  },
+  {
+    "order_id": "O-5010",
+    "tenant_id": "t-ember",
+    "amount": 373.0,
+    "status": "disputed",
+    "refundable_until": "2026-10-04"
+  },
+  {
+    "order_id": "O-5011",
+    "tenant_id": "t-acme",
+    "amount": 410.0,
+    "status": "paid",
+    "refundable_until": "2026-11-08"
+  },
+  {
+    "order_id": "O-5012",
+    "tenant_id": "t-birch",
+    "amount": 447.0,
+    "status": "paid",
+    "refundable_until": "2026-11-09"
+  },
+  {
+    "order_id": "O-5013",
+    "tenant_id": "t-cobalt",
+    "amount": 484.0,
+    "status": "paid",
+    "refundable_until": "2026-10-04"
+  },
+  {
+    "order_id": "O-5014",
+    "tenant_id": "t-delta",
+    "amount": 61.0,
+    "status": "refunded",
+    "refundable_until": "2026-11-11"
+  },
+  {
+    "order_id": "O-5015",
+    "tenant_id": "t-ember",
+    "amount": 98.0,
+    "status": "partially_refunded",
+    "refundable_until": "2026-11-12"
+  },
+  {
+    "order_id": "O-5016",
+    "tenant_id": "t-acme",
+    "amount": 135.0,
+    "status": "disputed",
+    "refundable_until": "2026-10-04"
+  },
+  {
+    "order_id": "O-5017",
+    "tenant_id": "t-birch",
+    "amount": 172.0,
+    "status": "paid",
+    "refundable_until": "2026-11-14"
+  },
+  {
+    "order_id": "O-5018",
+    "tenant_id": "t-cobalt",
+    "amount": 209.0,
+    "status": "paid",
+    "refundable_until": "2026-11-15"
+  },
+  {
+    "order_id": "O-5019",
+    "tenant_id": "t-delta",
+    "amount": 246.0,
+    "status": "paid",
+    "refundable_until": "2026-10-04"
+  },
+  {
+    "order_id": "O-5020",
+    "tenant_id": "t-ember",
+    "amount": 283.0,
+    "status": "refunded",
+    "refundable_until": "2026-11-17"
+  },
+  {
+    "order_id": "O-5021",
+    "tenant_id": "t-acme",
+    "amount": 320.0,
+    "status": "partially_refunded",
+    "refundable_until": "2026-11-08"
+  },
+  {
+    "order_id": "O-5022",
+    "tenant_id": "t-birch",
+    "amount": 357.0,
+    "status": "disputed",
+    "refundable_until": "2026-10-04"
+  },
+  {
+    "order_id": "O-5023",
+    "tenant_id": "t-cobalt",
+    "amount": 394.0,
+    "status": "paid",
+    "refundable_until": "2026-11-10"
+  },
+  {
+    "order_id": "O-5024",
+    "tenant_id": "t-delta",
+    "amount": 431.0,
+    "status": "paid",
+    "refundable_until": "2026-11-11"
+  },
+  {
+    "order_id": "O-5025",
+    "tenant_id": "t-ember",
+    "amount": 468.0,
+    "status": "paid",
+    "refundable_until": "2026-10-04"
+  },
+  {
+    "order_id": "O-5026",
+    "tenant_id": "t-acme",
+    "amount": 45.0,
+    "status": "refunded",
+    "refundable_until": "2026-11-13"
+  },
+  {
+    "order_id": "O-5027",
+    "tenant_id": "t-birch",
+    "amount": 82.0,
+    "status": "partially_refunded",
+    "refundable_until": "2026-11-14"
+  },
+  {
+    "order_id": "O-5028",
+    "tenant_id": "t-cobalt",
+    "amount": 119.0,
+    "status": "disputed",
+    "refundable_until": "2026-10-04"
+  },
+  {
+    "order_id": "O-5029",
+    "tenant_id": "t-delta",
+    "amount": 156.0,
+    "status": "paid",
+    "refundable_until": "2026-11-16"
+  },
+  {
+    "order_id": "O-5030",
+    "tenant_id": "t-ember",
+    "amount": 193.0,
+    "status": "paid",
+    "refundable_until": "2026-11-17"
+  }
+]

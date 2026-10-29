@@ -1,0 +1,97 @@
+erDiagram
+    TENANT ||--o{ USER : has
+    TENANT ||--o{ TICKET : owns
+    TENANT ||--o{ ORDER : owns
+    USER ||--o{ TICKET : "requests"
+    USER ||--o{ TICKET : "is assigned"
+    TICKET ||--o{ TICKET_MESSAGE : contains
+    TICKET ||--o{ APPROVAL_REQUEST : "may trigger"
+    ORDER ||--o{ APPROVAL_REQUEST : "is target of"
+    ORDER ||--o{ CREDIT : "may receive"
+    TENANT ||--o{ CREDIT : owns
+    APPROVAL_REQUEST ||--o| CREDIT : "authorises"
+    USER ||--o{ IDENTITY_HANDLE : "turn handle for"
+    USER ||--o{ APPROVAL_REQUEST : "requests / decides"
+    KB_DOCUMENT ||--o{ KB_CHUNK : "split into"
+    TICKET ||--o{ AUDIT_EVENT : "logged in"
+    APPROVAL_REQUEST ||--o{ AUDIT_EVENT : "logged in"
+
+    TENANT {
+        string tenant_id PK
+        string name
+        string plan_tier
+        int sla_hours
+    }
+    USER {
+        string user_id PK
+        string tenant_id FK
+        string role
+        string access_group
+    }
+    TICKET {
+        string ticket_id PK
+        string tenant_id FK
+        string requester_id FK
+        string assignee_id FK
+        string category
+        string priority
+        string status
+        timestamp sla_due
+    }
+    TICKET_MESSAGE {
+        string message_id PK
+        string ticket_id FK
+        string author_id FK
+        string body
+    }
+    ORDER {
+        string order_id PK
+        string tenant_id FK
+        decimal amount
+        string status
+    }
+    APPROVAL_REQUEST {
+        string approval_id PK
+        string ticket_id FK
+        string order_id FK
+        string action
+        string action_hash
+        string status "pending, approved, rejected, expired, executed, failed"
+    }
+    CREDIT {
+        string credit_id PK
+        string tenant_id FK
+        string order_id FK
+        string approval_id FK
+        decimal amount
+        timestamp created_at
+    }
+    IDENTITY_HANDLE {
+        string handle_id PK
+        string session_id
+        string turn_id
+        string user_id FK
+        int remaining_uses
+        timestamp expires_at "Firestore, TTL 120 s"
+    }
+    COUNTER {
+        string name PK
+        int next_id "ticket id generator"
+    }
+    KB_DOCUMENT {
+        string doc_id PK
+        string title
+        string access_group
+    }
+    KB_CHUNK {
+        string chunk_id PK
+        string doc_id FK
+        string section
+    }
+    AUDIT_EVENT {
+        string event_id PK
+        string correlation_id
+        string actor_id
+        string tool
+        string decision
+    }

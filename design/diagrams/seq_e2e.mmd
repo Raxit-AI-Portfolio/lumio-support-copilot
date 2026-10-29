@@ -1,0 +1,34 @@
+sequenceDiagram
+    autonumber
+    actor U as User
+    participant GW as Gateway
+    participant FS as Firestore
+    participant MA as Model Armor
+    participant CO as Coordinator
+    participant SP as Specialist
+    participant RS as Redeem service
+    participant TL as Tool
+    participant LLM as Gemini
+    U->>GW: message + JWT
+    GW->>GW: verify JWT, correlation id
+    GW->>FS: rate limit counters, create per-turn handle
+    GW->>MA: screen input
+    GW->>CO: stream request with identity and handle in state
+    GW-->>U: SSE: status event (about 3 s)
+    CO->>LLM: choose specialist
+    CO->>SP: delegate
+    SP->>LLM: plan tool call
+    SP->>RS: redeem handle for tool audience
+    RS-->>SP: scoped token
+    SP->>TL: call (callbacks check role and arguments)
+    TL-->>SP: result (screened)
+    SP->>LLM: write answer
+    SP-->>GW: partial and final events
+    alt KB answer
+        GW->>GW: hold text, validate citations, then release
+    else other answer
+        GW->>GW: stream, screen completed text, retract if blocked
+    end
+    GW-->>U: SSE: token, tool_status, final
+    GW->>FS: delete handle
+    Note over GW,TL: Every hop writes an audit event and a trace span with the same correlation id

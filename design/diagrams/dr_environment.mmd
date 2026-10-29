@@ -1,0 +1,28 @@
+flowchart LR
+    U["Users"] --> LB["Global load balancer<br/>+ Cloud Armor<br/>one IP"]
+    subgraph P["Primary us-central1 (active)"]
+        direction TB
+        PGW["Gateway"] --> PAE["Agent Engine"]
+        PGW --> PFS[("Firestore<br/>handles, rate limits")]
+        PAE --> PRS["Redeem service"]
+        PRS --> PFS
+        PAE --> PAPI["Ticket API + MCP"]
+        PAPI --> PBQ[("BigQuery<br/>lumio_ops")]
+        PAE --> PVS[("Vector Search<br/>kb_chunks")]
+    end
+    subgraph D["DR us-east1 (warm standby)"]
+        direction TB
+        DGW["Gateway<br/>min 0"] -.-> DAE["Agent Engine<br/>deployed on failover"]
+        DGW -.-> DFS[("Firestore<br/>own database, no copy<br/>handles are short lived")]
+        DAE -.-> DRS["Redeem service<br/>min 0"]
+        DRS -.-> DFS
+        DAE -.-> DAPI["Ticket API + MCP<br/>min 0"]
+        DAPI -.-> DBQ2[("BigQuery<br/>lumio_ops_dr<br/>writable copy")]
+        DBQ[("BigQuery replica<br/>read-only")] -.->|"copy on failover"| DBQ2
+        DAE -.-> DVS[("Vector Search<br/>kb_chunks")]
+    end
+    LB ==>|"weight 100"| PGW
+    LB -.->|"weight 0, then 100"| DGW
+    PBQ ==>|"replication"| DBQ
+    KB["KB load job<br/>embeds once"] --> PVS
+    KB --> DVS

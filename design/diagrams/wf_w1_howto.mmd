@@ -1,0 +1,19 @@
+sequenceDiagram
+    actor U as User
+    participant G as Gateway
+    participant C as Coordinator
+    participant K as Knowledge Agent
+    participant S as KB index
+    U->>G: question + user token
+    G->>G: verify token, set role, screen input
+    G->>C: question + identity in session state
+    C->>K: route (how-to / policy)
+    K->>S: search(query, access_group filter)
+    S-->>K: passages + scores
+    alt best score below threshold
+        K-->>U: "I could not find this. Open a ticket?"
+    else relevant passages
+        K->>K: write answer with [source ids]
+        K->>K: validate every cited id was retrieved
+        K-->>U: streamed answer with citations
+    end

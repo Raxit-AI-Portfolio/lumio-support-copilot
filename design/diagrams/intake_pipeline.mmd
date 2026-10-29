@@ -1,0 +1,9 @@
+flowchart TB
+    S["New problem text"] --> C["1. Classifier<br/>category + priority"]
+    C --> P{{"2. Run in parallel"}}
+    P --> K["KB lookup"]
+    P --> T["Similar tickets<br/>customer: find_similar_own_tickets<br/>staff: search_tickets"]
+    K --> D{"3. Decision"}
+    T --> D
+    D -->|known fix found| F["Show the fix,<br/>ask if it solved the problem"]
+    D -->|no fix| N["Create ticket<br/>through Ticket API"]
